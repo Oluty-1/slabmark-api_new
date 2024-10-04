@@ -8,6 +8,7 @@ import (
 	"github.com/tejiriaustin/slabmark-api/repository"
 	"github.com/tejiriaustin/slabmark-api/server"
 	"github.com/tejiriaustin/slabmark-api/services"
+	"github.com/tejiriaustin/slabmark-api/response"
 )
 
 // apiCmd represents the api command
@@ -56,12 +57,12 @@ func setApiEnvironment() env.Environment {
 
 	staticEnvironment.
 		SetEnv(env.EnvPort, env.GetEnv(env.EnvPort, "8080")).
-		SetEnv(env.RedisDsn, env.MustGetEnv(env.RedisDsn)).
-		SetEnv(env.RedisPort, env.MustGetEnv(env.RedisPort)).
-		SetEnv(env.RedisPass, env.MustGetEnv(env.RedisPass)).
-		SetEnv(env.MongoDsn, env.MustGetEnv(env.MongoDsn)).
-		SetEnv(env.MongoDbName, env.MustGetEnv(env.MongoDbName)).
-		SetEnv(env.JwtSecret, env.MustGetEnv(env.JwtSecret))
+		SetEnv(env.RedisDsn, env.GetEnv(env.RedisDsn)).
+		SetEnv(env.RedisPort, env.GetEnv(env.RedisPort)).
+		SetEnv(env.RedisPass, env.GetEnv(env.RedisPass)).
+		SetEnv(env.MongoDsn, env.GetEnv(env.MongoDsn)).
+		SetEnv(env.MongoDbName, env.GetEnv(env.MongoDbName)).
+		SetEnv(env.JwtSecret, env.GetEnv(env.JwtSecret))
 
 	return staticEnvironment
 }
